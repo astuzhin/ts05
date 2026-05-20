@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ts05-numba"
+version = "0.1.0"
+description = "TS05 magnetic field helpers with a Numba-callable native backend"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "numpy",
+    "numba",
+]
+
+[project.optional-dependencies]
+data = ["pandas"]
+plot = ["matplotlib"]
+examples = ["pandas", "matplotlib"]
+
+[tool.setuptools.packages.find]
+include = ["ts05*"]
+
+[tool.setuptools.package-data]
+ts05 = ["*.f", "*.f90"]
